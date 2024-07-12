@@ -1,0 +1,22 @@
+
+.login-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 590px;
+  padding: 60px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.login-form-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.inputs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
