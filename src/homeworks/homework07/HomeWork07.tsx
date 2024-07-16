@@ -1,5 +1,4 @@
 import { v4 } from "uuid";
-
 import "./styles.css";
 import { cars } from "./data";
 import { Car } from "./types";

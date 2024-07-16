@@ -1,4 +1,9 @@
-import "./styles.css";
+import {
+  ProfileCardWrapper,
+  UserName,
+  AvatarImg,
+  UserData
+} from"./styles";
 //импорт картинки из проекта (по относительному пути)
 import avatar from "../../assets/avatar.jpg";
 import { User } from "./types";
@@ -11,17 +16,16 @@ function ProfileCard() {
     profession: "Web Developer",
     hobbies: ["Reading", "Traveling", "Photography"],
   };
-
-  return (
-    <div className="profile-card">
-      <h2 className="user-name">{userData.userName}</h2>
+return (
+    <ProfileCardWrapper>
+      <UserName>{userData.userName}</UserName>
       {/* 1 вариант добавление картинки - абсолютный путь */}
       {/* <img src={userData.avatar} /> */}
       {/* 2 вариант добавление картинки - относительный путь */}
-      <img src={avatar} alt="user avatar" />
-      <div className="user-data">{userData.profession}</div>
-      <div className="user-data">{userData.hobbies[0]}</div>
-    </div>
+      <AvatarImg src={avatar} alt="user avatar" />
+      <UserData>{userData.profession}</UserData>
+      <UserData>{userData.hobbies[0]}</UserData>
+    </ProfileCardWrapper>
   );
 }
 

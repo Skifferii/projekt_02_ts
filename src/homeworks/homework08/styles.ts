@@ -1,10 +1,10 @@
-.lesson08-component {
+import styled from "@emotion/styled";
+
+export const Homework08Component = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   flex: 1;
   gap: 30px;
-  padding: 40px;
-  background: rgb(214, 144, 209);
-}
+`
