@@ -16,14 +16,17 @@ import Button from "../../components/Button/Button";
 
 function HomeWork10() {
   const [example1Value, setExample1Value] = useState<string>("");
+
   const handleChangeExample1 = (event: ChangeEvent<HTMLInputElement>) => {
     setExample1Value(event.target.value);
-    console.log(event.target.value);
   };
   const [example2Value, setExample2Value] = useState<string>("");
   const handleChangeExample2 = (event: ChangeEvent<HTMLInputElement>) => {
     setExample2Value(event.target.value);
-    console.log(event.target.value);
+  };
+  const [showResults, setShowResults] = useState<boolean>(false);
+  const handleButtonClick = () => {
+    setShowResults(true);
   };
 
   return (
@@ -35,16 +38,6 @@ function HomeWork10() {
         value={example1Value}
         onChange={handleChangeExample1}
       />
-      <Button
-        disabled={false}
-        name="Button1"
-        onButtonClick={() => {
-          example2Value !== "" && (
-            <ResultBlock resultName="field Example 1" result={example1Value} />
-          );
-        }}
-      />
-
       <Input
         label="Example 2"
         placeholder="Enter value 2"
@@ -54,22 +47,17 @@ function HomeWork10() {
       />
       <Button
         disabled={false}
-        name="Button2"
-        onButtonClick={() => {
-          example2Value !== "" && (
-            <ResultBlock resultName="field Example 2" result={example2Value} />
-          );
-        }}
+        name="Submit"
+        onButtonClick={handleButtonClick}
       />
+      {showResults && (
+        <>
+          <ResultBlock resultName="Field Example 1" result={example1Value} />
+          <ResultBlock resultName="Field Example 2" result={example2Value} />
+        </>
+      )}
     </Homework10Component>
   );
 }
 
 export default HomeWork10;
-
-
-
-
-
-
-
