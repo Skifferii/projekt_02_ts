@@ -7,8 +7,8 @@ export const ResultBlockComponent = styled.div`
  background: red;
  min-width: 200px;
  min-height: 200px;
- background-color: #9A57AD;
+ background-color: #929292;
  padding: 20px;
  font-size: 20px;
- color: #302633;
+ color: black;
 `

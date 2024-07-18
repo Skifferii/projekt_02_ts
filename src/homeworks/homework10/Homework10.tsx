@@ -1,13 +1,3 @@
-// Перед началом работы необходимо ответвиться от папки main репозитория, в котором мы работаем с React и TypeScript
-
-// Требования по ДЗ:
-
-// Cоздайте компонент Homework10 в папке homeworks, в нем должно быть 2 компонента Input и компонент кнопки Button
-// Каждый из инпутов должен быть котролируемым компонентом и контролироваться с помощью родительского состояния
-// При нажатии на кнопку значения из полей должны быть выведены на экран в двух стилизованных блоках
-// сделайте Pull request и сбросьте мне ссылку на него в слаке
-// P.S. Повторите тему по работе с отправкой запросов (fetch) из базового курса Frontend
-
 import { Homework10Component } from "./styles";
 import Input from "../../components/Input/Input";
 import ResultBlock from "../../components/ResultBlock/ResultBlock";
@@ -15,18 +5,26 @@ import { ChangeEvent, useState } from "react";
 import Button from "../../components/Button/Button";
 
 function HomeWork10() {
-  const [example1Value, setExample1Value] = useState<string>("");
+  const [firstNoteValue, setFirstNoteValue] = useState<string>("");
+  const [secondNoteValue, setSecondNoteValue] = useState<string>("");
+  const [firstResult, setFirstResult] = useState<string>("");
+  const [secondResult, setSecondResult] = useState<string>("");
+  const [isShowBlock, setIsShowBlock] = useState<boolean>(false);
 
-  const handleChangeExample1 = (event: ChangeEvent<HTMLInputElement>) => {
-    setExample1Value(event.target.value);
+  const firstNoteOnChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setFirstNoteValue(event.target.value);
   };
-  const [example2Value, setExample2Value] = useState<string>("");
-  const handleChangeExample2 = (event: ChangeEvent<HTMLInputElement>) => {
-    setExample2Value(event.target.value);
+
+  const secondNoteOnChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSecondNoteValue(event.target.value);
   };
-  const [showResults, setShowResults] = useState<boolean>(false);
-  const handleButtonClick = () => {
-    setShowResults(true);
+
+  const showResult = () => {
+       setFirstResult(firstNoteValue);
+       setSecondResult(secondNoteValue);
+    if (firstNoteValue !== `` || secondNoteValue !== ``) {
+        setIsShowBlock(!isShowBlock);
+      }
   };
 
   return (
@@ -35,25 +33,29 @@ function HomeWork10() {
         label="Example 1"
         placeholder="Enter value 1"
         name="example1"
-        value={example1Value}
-        onChange={handleChangeExample1}
+        value={firstNoteValue}
+        onChange={firstNoteOnChange}
       />
       <Input
         label="Example 2"
         placeholder="Enter value 2"
         name="example2"
-        value={example2Value}
-        onChange={handleChangeExample2}
+        value={secondNoteValue}
+        onChange={secondNoteOnChange}
       />
       <Button
         disabled={false}
-        name="Submit"
-        onButtonClick={handleButtonClick}
+        name="SCHOW/HIDE RESULT"
+        onButtonClick={showResult}
       />
-      {showResults && (
+      {isShowBlock && (
         <>
-          <ResultBlock resultName="Field Example 1" result={example1Value} />
-          <ResultBlock resultName="Field Example 2" result={example2Value} />
+          {firstResult !== `` && (
+            <ResultBlock resultName="First_Note_Value" result={firstResult} />
+          )}
+          {secondResult && (
+            <ResultBlock resultName="Second_Note_Value" result={secondResult} />
+          )}
         </>
       )}
     </Homework10Component>

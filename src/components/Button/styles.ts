@@ -11,7 +11,7 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
   border: none;
   padding: 20px;
   /* background: #1f27f5; */
-  background: ${({disabled }) => disabled ? 'grey' : '#1f27f5'};
+  background: ${({disabled }) => disabled ? '#AEAEAE' : '#565656'};
   border-radius: 4px;
   color: white;
   font-size: 16px;
