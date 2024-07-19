@@ -4,7 +4,7 @@ export const SpinnerWrapperCat = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  //height: 100%; /* Настройте высоту контейнера по необходимости */
+ 
 
   .spinner {
     width: 80px; /* Размер спиннера */
