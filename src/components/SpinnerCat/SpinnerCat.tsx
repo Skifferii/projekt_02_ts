@@ -11,12 +11,3 @@ const SpinnerCat = () => {
   
   export default SpinnerCat;
 
-  // const Spinner = () => {
-//   return (
-//     <SpinnerWrapper>
-//       <div className="spinner"></div>
-//     </SpinnerWrapper>
-//   );
-// };
-
-// export default Spinner;

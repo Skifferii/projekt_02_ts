@@ -12,16 +12,17 @@ export const GrayBox = styled.div`
 display: flex;
  justify-content: center;
  align-items: left;
- background: red;
- min-width: 99%;
- min-height: 200px;
- max-height: 700px;
+ max-width: 720px;
+ min-width: 720px;
+  max-height: 700px;
  overflow-y: auto;
  background-color: #929292;
- padding: 20px;
- font-size: 15px;
+ padding: 10px;
+ font-size: 14px;
  color: black;
  flex-direction: column; 
+
+ 
 `
 
 

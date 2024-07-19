@@ -38,18 +38,21 @@ function Lesson13() {
           <>
             <GrayBox>
               {catArray.map((fact, index) => (
-                <h1 key={index}>
-                  Cat Fact {index + 1} {fact}
+                <h1 key={index}> 
+                   {index + 1}) Fact :   {fact}
                 </h1>
               ))}
             </GrayBox>
           </>
         )}
+        <GrayBox>
+          <Button name={"GET MORE INFO"} onButtonClick={getCatFact} />  {catArray.length > 0 && (
+            <Button name={"DELETE ALL DATA"} onButtonClick={deleteAllData} />)}
+          </GrayBox>
+          <GrayBox>
+        
+        </GrayBox>
       </>
-      <Button name={"GET MORE INFO"} onButtonClick={getCatFact} />
-      {catArray.length > 0 && (
-        <Button name={"DELETE ALL DATA"} onButtonClick={deleteAllData} />
-      )}
     </Lesson13Component>
   );
 }
