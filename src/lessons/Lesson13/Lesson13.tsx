@@ -1,19 +1,22 @@
 import { useEffect, useState } from "react";
 
-import ResultBlock from "../../components/ResultBlock/ResultBlock";
-import { Lesson13Component } from "./styles";
+import { GrayBox, Lesson13Component } from "./styles";
 import Button from "../../components/Button/Button";
-
+import SpinnerCat from "../../components/SpinnerCat/SpinnerCat";
 function Lesson13() {
   const [catArray, setCatArrayData] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false); // Cостояние загрузки
 
   const getCatFact = async () => {
+    setIsLoading(true); // Устанавливаем состояние загрузки в true
     try {
       const response = await fetch("https://catfact.ninja/fact");
       const result = await response.json();
       setCatArrayData([...catArray, result.fact]);
     } catch (error) {
       console.error("Error fetching cat fact:", error);
+    } finally {
+      setIsLoading(false); // Устанавливаем состояние загрузки в false после завершения запроса
     }
   };
 
@@ -27,16 +30,19 @@ function Lesson13() {
 
   return (
     <Lesson13Component>
+      {isLoading && (
+        <SpinnerCat /> // Показываем спиннер, если данные загружаются
+      )}
       <>
         {catArray.length > 0 && (
           <>
-            {catArray.map((fact, index) => (
-              <ResultBlock
-                key={index}
-                resultName={`Cat Fact ${index + 1}`}
-                result={fact}
-              />
-            ))}
+            <GrayBox>
+              {catArray.map((fact, index) => (
+                <h1 key={index}>
+                  Cat Fact {index + 1} {fact}
+                </h1>
+              ))}
+            </GrayBox>
           </>
         )}
       </>
