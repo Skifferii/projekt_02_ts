@@ -5,4 +5,5 @@ export const Lesson13Component = styled.div`
   align-items: center;
   justify-content: center;
   flex: 1;
+  flex-direction: column
 `
