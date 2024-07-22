@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import SpinerGif from "../../components/SpinnerCat/SpinerCat.gif";
 
 export const SpinnerWrapperCat = styled.div`
   display: flex;
