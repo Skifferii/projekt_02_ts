@@ -1,11 +1,13 @@
 export interface EmployeeFormValue {
     name: string
     surname: string
-    jobTitle: string
+    jobTitle?: string
+    salary: number
   }
   
   export enum EMPLOYEE_FORM_FIELDS {
     NAME = 'name',
     SURNAME = 'surname',
-    JOB_TITLE = 'jobTitle'
+    JOB_TITLE = 'jobTitle',
+    SALARY = 'salary'
   }

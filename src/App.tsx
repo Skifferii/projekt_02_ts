@@ -9,7 +9,7 @@ import GlobalStyles from "./styles/GlobalStyles";
 // import Lesson11 from "./lessons/Lesson11/Lesson11";
 // import Lesson12 from "./lessons/Lesson12/Lesson12";
 //import Lesson13 from "./lessons/Lesson13/Lesson13";
-import Lesson14 from "./lessons/Lessons14/Lesson14";
+// import Lesson14 from "./lessons/Lessons14/Lesson14";
 //Homeworks import
 //import HomeWork07 from './homeworks/homework07/HomeWork07';
 //import HomeWork08 from './homeworks/homework08/HomeWork08';
@@ -18,6 +18,7 @@ import Lesson14 from "./lessons/Lessons14/Lesson14";
 // import HomeWork10 from "./homeworks/homework10/Homework10"
 // import HomeWork11 from "./homeworks/homework11/Homework11";
 // import HomeWork12 from "./homeworks/homework12/Homework12";
+import HomeWork14 from "./homeworks/homework14/Homework14";
 function App() {
   return (
     <>
@@ -30,7 +31,7 @@ function App() {
       {/* <Lesson11 /> */}
       {/* <Lesson12 /> */}
       {/* <Lesson13 /> */}
-      <Lesson14 />
+      {/* <Lesson14 /> */}
       {/* <HomeWork06 /> */}
       {/* <HomeWork07 /> */}
       {/* <HomeWork08 /> */}
@@ -41,6 +42,7 @@ function App() {
       {/* <HomeWork10/> */}
       {/* <HomeWork11/> */}
       {/* <HomeWork12/> */}
+      <HomeWork14/>
     </>
   );
 }
