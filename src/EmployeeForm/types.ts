@@ -3,11 +3,13 @@ export interface EmployeeFormValue {
     surname: string
     jobTitle?: string
     salary: number
+    agree: boolean
   }
   
   export enum EMPLOYEE_FORM_FIELDS {
     NAME = 'name',
     SURNAME = 'surname',
     JOB_TITLE = 'jobTitle',
-    SALARY = 'salary'
+    SALARY = 'salary',
+    AGREE = 'agree'
   }
