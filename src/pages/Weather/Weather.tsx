@@ -1,7 +1,6 @@
 import { ChangeEvent, useState } from "react";
 import { GrayBox, WeatherPage } from "./styles";
 import Spinner from "../../components/Spinner/Spinner";
-import { v4 } from "uuid";
 import Button from "../../components/Button/Button";
 import Input from "../../components/Input/Input";
 
