@@ -1,4 +1,4 @@
-import GoBack from "components/GoBack/GoBack";
+import GoBack from "../../components/GoBack/GoBack";
 import { AboutPage, Title } from "./styles";
 
 function About() {

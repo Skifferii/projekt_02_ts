@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { Footer, Header, HeaderLogo, LayoutComponent, Main, NavContainer } from "./styles"
 import Avatar from 'assets/avatar.jpg'
 import { LayoutProps } from "./types"
-import NavigationLink from "components/NavigationLink/NavigationLink"
+import NavigationLink from "../NavigationLink/NavigationLink"
 
 function Layout({ children }: LayoutProps) {
   const navigate = useNavigate()
