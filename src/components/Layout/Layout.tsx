@@ -1,38 +1,30 @@
-import { Footer, Header, HeaderLogo, LayoutComponent, Main, NavContainer,StyledNavLink } from "./styles"
-import Avatar from '../../assets/avatarPNG.png'
+
+import { Link, useNavigate } from "react-router-dom"
+
+import { Footer, Header, HeaderLogo, LayoutComponent, Main, NavContainer } from "./styles"
+import Avatar from 'assets/avatar.jpg'
 import { LayoutProps } from "./types"
+import NavigationLink from "components/NavigationLink/NavigationLink"
 
-
-function Layout({children}: LayoutProps) {
+function Layout({ children }: LayoutProps) {
+  const navigate = useNavigate()
 
   return (
     <LayoutComponent>
       <Header>
-        <HeaderLogo src={Avatar} />
+        {/* Первый способ сделать картинку ссылкой для перехода на главную страницу */}
+        <Link to='/'><HeaderLogo src={Avatar} /></Link>
         <NavContainer>
-        <StyledNavLink
-            to='/'
-            style={({ isActive }) => ({ textDecoration: isActive ? 'underline' : 'none' })}
-          >
-            Home
-          </StyledNavLink>
-          <StyledNavLink
-            to='/users'
-            style={({ isActive }) => ({ textDecoration: isActive ? 'underline' : 'none' })}
-          >
-            Users
-          </StyledNavLink>
-          <StyledNavLink
-            to='/bout'
-            style={({ isActive }) => ({ textDecoration: isActive ? 'underline' : 'none' })}
-          >
-            About
-          </StyledNavLink>
+          <NavigationLink path='/' nameLink="Home" />
+          <NavigationLink path='/users' nameLink="Users" />
+          <NavigationLink path='/about' nameLink="About" />
+          <NavigationLink path='/clients' nameLink="Clients" />
         </NavContainer>
       </Header>
       <Main>{children}</Main>
       <Footer>
-        <HeaderLogo src={Avatar} />
+        {/* Второй способ сделать картинку ссылкой для перехода на главную страницу */}
+        <HeaderLogo src={Avatar} onClick={() => navigate('/')} />
       </Footer>
     </LayoutComponent>
   )

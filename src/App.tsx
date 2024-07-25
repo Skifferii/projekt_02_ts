@@ -9,6 +9,7 @@ import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Users from "./pages/Users/Users"
 
+
 //Lessons import
 // import Lesson06 from './lessons/Lesson06/Lesson06';
 //import Lesson07 from './lessons/Lesson07/Lesson07';
@@ -19,7 +20,7 @@ import Users from "./pages/Users/Users"
 // import Lesson12 from "./lessons/Lesson12/Lesson12";
 //import Lesson13 from "./lessons/Lesson13/Lesson13";
 // import Lesson14 from "./lessons/Lessons14/Lesson14";
-
+import Lesson16 from "./lessons/Lesson16/Lesson16";
 //Homeworks import
 //import HomeWork07 from './homeworks/homework07/HomeWork07';
 //import HomeWork08 from './homeworks/homework08/HomeWork08';
@@ -56,13 +57,14 @@ function App() {
       {/* <HomeWork12/> */}
       {/* <HomeWork14/> */}
       {/* lesson 15 examples whith pages */}
-      <Layout>
+      {/* <Layout>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/users' element={<Users />} />
           <Route path='/about' element={<About />} />
         </Routes>
-      </Layout>
+      </Layout> */}
+      <Lesson16/>
       </BrowserRouter>
   );
 }

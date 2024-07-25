@@ -1,13 +1,10 @@
 import styled from "@emotion/styled";
 
-export const AboutPage = styled.div`
+export const Lesson16Wrapper = styled.div`
  display: flex;
  flex-direction: column;
+ align-items: center;
  justify-content: center;
- gap: 30px;
  flex: 1;
-`
-
-export const Title = styled.h1`
-  font-size: 30px
+ padding: 40px;
 `

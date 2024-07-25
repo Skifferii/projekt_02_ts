@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { NavLink } from 'react-router-dom';
 
 export const LayoutComponent = styled.div`
   display: flex;
@@ -18,6 +17,7 @@ export const Header = styled.header`
 export const HeaderLogo = styled.img`
   width: 50px;
   height: 50px;
+  cursor: pointer
 `
 
 export const NavContainer = styled.nav`
@@ -37,9 +37,4 @@ export const Footer = styled.footer`
   padding: 20px;
   background: #06006F;
   color: white;
-`
-export const StyledNavLink = styled(NavLink)`
- text-decoration: none;
- font-size: 20px;
- color: white;
 `
