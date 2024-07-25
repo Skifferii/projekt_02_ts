@@ -12,7 +12,7 @@ display: flex;
 export const GrayBox = styled.div`
 display: flex;
  justify-content: center;
- align-items: left;
+ align-items: center;
  max-width: 720px;
  min-width: 720px;
   max-height: 700px;
