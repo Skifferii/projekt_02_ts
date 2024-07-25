@@ -57,11 +57,16 @@ function App() {
       {/* <HomeWork12/> */}
       {/* <HomeWork14/> */}
       {/* lesson 15 examples whith pages */}
-      {/* <Layout>
+       {/* <Layout>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/users' element={<Users />} />
           <Route path='/about' element={<About />} />
+          <Route path='/clients' element={<Clients />} />
+          <Route path='/clients/amazon' element={<Amazon />} />
+          <Route path='/clients/facebook' element={<Facebook />} />
+          <Route path='/clients/google' element={<Google />} />
+          <Route path='*' element={'Page not found'} />
         </Routes>
       </Layout> */}
       <Lesson16/>
