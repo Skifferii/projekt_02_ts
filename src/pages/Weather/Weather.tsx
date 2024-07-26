@@ -1,16 +1,20 @@
 import { ChangeEvent, useState } from "react";
-import { GrayBox, WeatherPage } from "./styles";
+import { GrayBox, WeatherPage, ImgBox } from "./styles";
 import Spinner from "../../components/Spinner/Spinner";
 import Button from "../../components/Button/Button";
 import Input from "../../components/Input/Input";
+import { WeatherProps,WeatherErrorProps } from "./types";
 
 function Weather() {
-  const [weatherData, setWeatherData] = useState<any>(null);
+  const [weatherData, setWeatherData] = useState<WeatherProps | null>(null);
+  const [weatherError, setWeatherError] = useState<WeatherErrorProps | null>(null);
   const [cityNameData, setCityNameData] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const APP_ID = "aabf61496f6d44d03e22284cfd04081f";
 
   const getWeather = async () => {
+    setWeatherData(null);
+    setWeatherError(null);
     setIsLoading(true);
     if (cityNameData === "") {
       alert("Enter city");
@@ -23,19 +27,28 @@ function Weather() {
         const result = await response.json();
         console.log(result);
         if (response.ok) {
-          setWeatherData(result);
+          setWeatherData({
+            name: result.name,
+            country: result.sys.country,
+            temp: result.main.temp,
+            description: result.weather[0].description,
+            wind: result.wind.speed,
+            weatherIcon: result.weather[0].icon,
+          });
         } else {
-          throw Object.assign(new Error("API ERROR"), { errorObj: result });
+          setWeatherError({ 
+            cod: result.cod, 
+            message: result.message });
+          //throw Object.assign(new Error("API ERROR"), { errorObj: result });
         }
       } catch (error) {
-        console.error("API Error ", error);
+        console.log(error)        
       } finally {
         setIsLoading(false);
       }
     }
   };
-
-  const cityChange = (event: ChangeEvent<HTMLInputElement>) => {
+   const cityChange = (event: ChangeEvent<HTMLInputElement>) => {
     setCityNameData(event.target.value);
   };
 
@@ -45,7 +58,7 @@ function Weather() {
       <GrayBox>
         <Input
           name={"Input"}
-          placeholder={"City"}
+          placeholder={"Input City"}
           value={cityNameData}
           onChange={cityChange}
         />
@@ -53,17 +66,24 @@ function Weather() {
       </GrayBox>
       {weatherData && (
         <GrayBox>
-          <h1>{`City: ${weatherData.name}, ${weatherData.sys.country}`}</h1>
+          <h1>{`City: ${weatherData.name}, ${weatherData.country}`}</h1>
           <h2>
-            <img
-              src={`http://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`}
-              alt={weatherData.weather[0].description}
-              style={{ width: "90px", height: "90px" }}
-            />
+            <ImgBox>
+              <img
+                src={`http://openweathermap.org/img/w/${weatherData.weatherIcon}.png`}
+                alt={weatherData.description}
+              />
+            </ImgBox>
           </h2>
-          <h2>{`${weatherData.weather[0].description}`}</h2>
-          <h2>{` ${(weatherData.main.temp - 273.15).toFixed(1)} °C`}</h2>
-          <h2>{`wind ${weatherData.wind.speed}`}</h2>
+          <h2>{`${weatherData.description}`}</h2>
+          <h2>{` ${(weatherData.temp - 273.15).toFixed(1)} °C`}</h2>
+          <h2>{`wind ${weatherData.wind} m/s`}</h2>
+        </GrayBox>
+      )}
+      {weatherError && (
+        <GrayBox>
+          <h1>{`Code: ${weatherError.cod}`}</h1>          
+          <h2>{`${weatherError.message}`}</h2>          
         </GrayBox>
       )}
     </WeatherPage>

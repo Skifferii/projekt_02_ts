@@ -25,5 +25,8 @@ display: flex;
 
  
 `
-
+export const ImgBox = styled.div`
+width: "90px"; 
+height: "90px";
+`
 
